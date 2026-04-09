@@ -1,1 +1,30 @@
-{"id":"/llms.txt","path":"/llms.txt","sha":"b7fa47d47b0ed0cebd64592600978edf52cd9743","mime_type":"text/plain","size":961,"site_id":"0dde044b-ece9-4a77-81da-aeb0a8291af5","deploy_id":"69bc8eedf7cb8c04cc233f7a"}
+# SCVbots
+
+> Local AI voice + chat automation for Santa Clarita businesses.
+
+## Primary URL
+- https://scvbots.com/
+
+## What SCVbots Offers
+- AI Voice Agent setup for missed calls and after-hours coverage
+- AI Website Chat setup for lead capture and qualification
+- Appointment booking automation and CRM pipeline integration
+- Local onboarding and optimization support in Santa Clarita
+
+## Ideal Users
+- Local service businesses missing calls or leads
+- Owners who need faster response and better conversion from website traffic
+- Teams that want fewer manual follow-up gaps
+
+## Key Contact
+- Phone: +1-661-400-1720
+- Email: Connor@HonorElevate.com
+
+## Commercial Terms
+- Public offer and pricing details are on the homepage.
+- Paid onboarding intake is hosted at /onboarding.html and is intentionally noindex.
+
+## Crawl Guidance
+- Canonical homepage: https://scvbots.com/
+- robots.txt: https://scvbots.com/robots.txt
+- sitemap: https://scvbots.com/sitemap.xml

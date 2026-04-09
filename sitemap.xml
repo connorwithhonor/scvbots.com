@@ -1,1 +1,9 @@
-{"id":"/sitemap.xml","path":"/sitemap.xml","sha":"3970ccc9b336be035c0b0c83b8dd81a468e63321","mime_type":"application/xml","size":262,"site_id":"0dde044b-ece9-4a77-81da-aeb0a8291af5","deploy_id":"69bc8eedf7cb8c04cc233f7a"}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://scvbots.com/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

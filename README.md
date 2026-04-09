@@ -1,2 +1,0 @@
-# scvbots.com
-SCVBots.com

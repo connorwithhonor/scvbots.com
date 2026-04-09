@@ -1,1 +1,5 @@
-{"id":"/robots.txt","path":"/robots.txt","sha":"5194d7e528f88f34004a12dac8c7c712dcef2e77","mime_type":"text/plain","size":92,"site_id":"0dde044b-ece9-4a77-81da-aeb0a8291af5","deploy_id":"69bc8eedf7cb8c04cc233f7a"}
+User-agent: *
+Allow: /
+Disallow: /onboarding.html
+
+Sitemap: https://scvbots.com/sitemap.xml

@@ -1,1 +1,530 @@
-{"id":"/scvbots-funnel.html","path":"/scvbots-funnel.html","sha":"39e68f90ec0ec4fbca64a70945defc29aee750de","mime_type":"text/html","size":17433,"site_id":"0dde044b-ece9-4a77-81da-aeb0a8291af5","deploy_id":"69bc8eedf7cb8c04cc233f7a"}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SCVbots – 24/7 AI Call & Web Assistant for Santa Clarita Businesses</title>
+  <meta name="description" content="Never miss a customer again. SCVbots provides 24/7 AI voice and web assistants for local Santa Clarita businesses. Capture every lead, book appointments automatically.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #0f172a;
+      --card: #0f172a;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border: #1e293b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --radius-lg: 16px;
+      --radius-md: 8px;
+      --shadow-lg: 0 20px 50px -10px rgba(0, 0, 0, 0.6);
+      --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.12) 0px, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(16, 185, 129, 0.1) 0px, transparent 40%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    /* Container */
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Hero Section */
+    header.hero {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge .dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    }
+
+    header.hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to bottom right, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    header.hero p.sub {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: #0f172a;
+      box-shadow: 0 4px 14px 0 rgba(56, 189, 248, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(30, 41, 59, 0.5);
+      color: var(--text);
+      border-color: var(--border);
+      backdrop-filter: blur(4px);
+    }
+    .btn-secondary:hover {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: var(--text-muted);
+    }
+
+    /* Layout Grid */
+    .grid-main {
+      display: grid;
+      gap: 32px;
+    }
+
+    @media (min-width: 900px) {
+      .grid-main {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: start;
+      }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 40%);
+      pointer-events: none;
+    }
+    
+    .card.glass {
+       background: rgba(15, 23, 42, 0.6);
+       backdrop-filter: blur(12px);
+    }
+
+    /* Section Typography */
+    h2.section-title {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        color: var(--text);
+    }
+
+    /* Lists */
+    ul.check-list {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    ul.check-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 14px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    ul.check-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--success);
+      font-weight: bold;
+    }
+    ul.check-list li strong {
+        color: var(--text);
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .price-box {
+      background: rgba(2, 6, 23, 0.5);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: transform 0.2s;
+    }
+    .price-box:hover {
+        border-color: var(--accent);
+    }
+    .price-box.featured {
+      border-color: rgba(56, 189, 248, 0.5);
+      background: rgba(56, 189, 248, 0.03);
+      position: relative;
+    }
+    .price-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      display: block;
+      font-weight: 600;
+    }
+    .price-amount {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .price-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Steps */
+    .steps {
+        counter-reset: step;
+        display: grid;
+        gap: 16px;
+        margin-top: 24px;
+    }
+    .step-item {
+        background: rgba(30, 41, 59, 0.3);
+        padding: 18px;
+        border-radius: var(--radius-md);
+        border-left: 3px solid var(--border);
+        transition: border-color 0.2s;
+    }
+    .step-item:hover {
+        border-color: var(--accent);
+    }
+    .step-item h4 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+        color: var(--text);
+    }
+    .step-item p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* Bot & Calendar Placeholders */
+    .placeholder-box {
+      border: 1px dashed var(--border);
+      background: rgba(0,0,0,0.2);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 16px;
+    }
+    .placeholder-box code {
+        display: block;
+        margin-top: 12px;
+        font-family: monospace;
+        color: var(--accent);
+        font-size: 0.8em;
+        background: rgba(0,0,0,0.3);
+        padding: 8px;
+        border-radius: 4px;
+    }
+    
+    .local-badge-small {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(30, 41, 59, 0.5);
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+    }
+    .local-badge-small strong {
+        color: var(--text);
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        margin-top: 80px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+        color: #64748b;
+        font-size: 0.85rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png"><meta property="og:image" content="https://scvbots.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://scvbots.com/og-image.png"></head>
+<body>
+
+<div class="page">
+  <!-- Header / Hero -->
+  <header class="hero">
+    <div class="badge">
+      <span class="dot"></span>
+      <span>Built in Santa Clarita – for Santa Clarita businesses</span>
+    </div>
+    <h1>SCVbots – 24/7 AI Call &amp; Web Assistant</h1>
+    <p class="sub">
+      Never miss another customer because a call went to voicemail or your website did nothing.
+      We drop in an AI assistant that answers, qualifies, and books for you – 24/7.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#demo" class="btn btn-primary">See the AI Assistant in Action</a>
+      <a href="#calendar" class="btn btn-secondary">Book a 15‑Minute Fit Call</a>
+    </div>
+  </header>
+
+  <div class="grid-main">
+    
+    <!-- LEFT COLUMN: The Pitch & Details -->
+    <section class="card">
+      <h2 class="section-title">The Problem You Already Feel</h2>
+      <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.05rem;">
+        If you run a business in Santa Clarita, you already know what this feels like:
+      </p>
+      <ul class="check-list">
+        <li>Calls roll to voicemail or ring out when you’re busy or closed.</li>
+        <li>Your website gets visitors, but almost nobody actually contacts you.</li>
+        <li>Your team answers the same 5 questions over and over again all day.</li>
+      </ul>
+
+      <div style="height: 1px; background: var(--border); margin: 32px 0;"></div>
+
+      <h2 class="section-title">The SCVbots System – Core Offer</h2>
+      <p style="margin-bottom: 20px; color: var(--text-muted);">
+        We install a 24/7 AI call &amp; web assistant that acts like a trained front‑desk person for your business.
+      </p>
+
+      <h3>What You Get</h3>
+      <ul class="check-list">
+        <li><strong>AI Voice Agent (Phone):</strong> Answers your main line 24/7 or handles after-hours/overflow.</li>
+        <li><strong>AI Web Chat:</strong> Lives on your website, handling FAQs and capturing leads instantly.</li>
+        <li><strong>Lead Pipeline Dashboard:</strong> See every missed opportunity you’re now capturing.</li>
+        <li><strong>Appointment Booking:</strong> Integrated calendar to book calls or visits automatically.</li>
+        <li><strong>Missed Call Text‑Back:</strong> Automatic SMS to every missed call so they don't call the next guy.</li>
+        <li><strong>Monthly Performance Report:</strong> Simple breakdown of calls handled and revenue saved.</li>
+      </ul>
+
+      <div style="height: 1px; background: var(--border); margin: 32px 0;"></div>
+
+      <h2 class="section-title">Pricing</h2>
+      <div class="pricing-grid">
+        <!-- Standard Plan -->
+        <div class="price-box">
+          <span class="price-label">Standard</span>
+          <span class="price-amount">$497 <span style="font-size:1rem; font-weight:400; color:var(--text-muted)">setup</span></span>
+          <span class="price-amount" style="font-size:1.2rem; margin-top:8px;">$297/mo</span>
+          <p class="price-note" style="margin-top:12px;">One‑time launch fee – build, connect, and go‑live. No long‑term contract.</p>
+        </div>
+
+        <!-- Founding 10 Plan -->
+        <div class="price-box featured">
+          <div style="position:absolute; top:0; right:0; background:var(--accent); color:#000; font-size:0.65rem; font-weight:bold; padding:3px 10px; border-bottom-left-radius:8px;">LOCAL EXCLUSIVE</div>
+          <span class="price-label" style="color:var(--accent);">Founding 10 (Local Only)</span>
+          <span class="price-amount">$297 <span style="font-size:1rem; font-weight:400; color:var(--text-muted)">setup</span></span>
+          <span class="price-amount" style="font-size:1.2rem; margin-top:8px;">$247/mo</span>
+          <p class="price-note" style="margin-top:12px;">Special rate for the first 10 Santa Clarita businesses. Lock in low pricing for 3 months.</p>
+        </div>
+      </div>
+
+      <div style="height: 1px; background: var(--border); margin: 32px 0;"></div>
+
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps">
+        <div class="step-item">
+          <h4>1. Quick intake &amp; website scan</h4>
+          <p>We pull your current website info and ask a few questions about your services, hours, and the questions you’re tired of answering.</p>
+        </div>
+        <div class="step-item">
+          <h4>2. Build your AI Assistant</h4>
+          <p>We train your AI on your business details. It learns to screen callers, answer questions, and stop you from losing leads.</p>
+        </div>
+        <div class="step-item">
+          <h4>3. Connect &amp; Go Live</h4>
+          <p>We connect the assistant to your phone and website. Every call/chat becomes a tracked lead in your new pipeline.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 24px; font-size: 0.85rem; color: var(--text-muted); font-style: italic;">
+        Powered by HonorElevate – our white-labelled automation platform. We handle the tech; you handle the new customers.
+      </p>
+    </section>
+
+    <!-- RIGHT COLUMN: Interaction & Conversion -->
+    <aside class="grid" style="gap:24px;">
+      
+      <!-- Demo Section -->
+      <div class="card glass" id="demo">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h2 class="section-title" style="margin-bottom:0; border:none;">Try the AI Concierge</h2>
+            <div class="local-badge-small"><span>Local</span> <strong>SCV businesses only</strong></div>
+        </div>
+        
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">
+          Talk to the demo assistant below. It behaves like the AI we would put on your phone line and website. Answer as yourself – a business owner.
+        </p>
+        
+        <!-- BOT EMBED PLACEHOLDER -->
+        <div class="placeholder-box">
+          [ HONOR ELEVATE / GHL CHAT BOT SCRIPT GOES HERE ]
+          <code>&lt;script src="..."&gt;&lt;/script&gt;</code>
+        </div>
+        
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">
+            <strong>Bot Prompt:</strong> "Introduce yourself as the SCVbots demo. Ask what business they run in Santa Clarita. Estimate missed calls. Capture contact info."
+        </p>
+      </div>
+
+      <!-- Calendar Section -->
+      <div class="card glass" id="calendar">
+        <h2 class="section-title">Book a 15‑Minute Fit Call</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            We’ll look at your current website and call flow, estimate how many leads you’re probably missing, and map out exactly how the AI assistant would plug in.
+        </p>
+        
+        <!-- CALENDAR EMBED PLACEHOLDER -->
+        <div class="placeholder-box">
+          [ HONOR ELEVATE / GHL CALENDAR EMBED ]
+          <code>&lt;iframe src="..."&gt;&lt;/iframe&gt;</code>
+        </div>
+
+        <div style="margin-top: 24px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid rgba(148, 163, 184, 0.2); padding-top: 16px;">
+          Prefer email? Reply to <a href="mailto:Connor@HonorElevate.com" style="color:var(--accent); font-weight:600;">Connor@HonorElevate.com</a> with your website URL and “roughly how many calls you miss each week”.
+        </div>
+      </div>
+
+      <!-- Credibility -->
+      <div class="card" style="padding: 24px; background: rgba(15, 23, 42, 0.4);">
+        <h2 class="section-title" style="margin-bottom:12px;">Who’s Behind SCVbots?</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+            I’m Connor, local in Santa Clarita. I run HonorElevate, an automation and AI systems platform. SCVbots is the dedicated AI arm for SCV businesses.
+        </p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; line-height: 1.5;">
+            You’re not sending your customers to an overseas call center. You’re using a structured AI system built and monitored locally.
+        </p>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <footer>
+    <div class="page" style="padding-top:0; padding-bottom:0;">
+      <p style="margin-bottom:8px;">
+        SCVbots is a service of HonorElevate. All conversations handled by the AI assistant are recorded and logged for quality and training purposes.
+      </p>
+      <p>
+        You remain responsible for your business decisions. No legal, medical, or financial advice is provided by the AI assistant; it is designed to route and qualify callers, not replace professional judgment.
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

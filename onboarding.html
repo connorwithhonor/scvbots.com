@@ -1,1 +1,588 @@
-{"id":"/onboarding.html","path":"/onboarding.html","sha":"03487649ba3dc473dcfda7cf2bd170ec57fad333","mime_type":"text/html","size":25620,"site_id":"0dde044b-ece9-4a77-81da-aeb0a8291af5","deploy_id":"69bc8eedf7cb8c04cc233f7a"}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCVbots Client Onboarding Form</title>
+  <meta name="description" content="SCVbots paid client onboarding form. Submit your business, AI configuration, and deployment details." />
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="canonical" href="https://scvbots.com/onboarding.html">
+  <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/RktVfwmIdGQ2Yj13UV7w/media/6993d00b1d5e047ad57125d7.png">
+  <style>
+    :root {
+      --bg: #0a0c14;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9aa9c1;
+      --accent: #38bdf8;
+      --accent2: #2563eb;
+      --ok: #22c55e;
+      --border: rgba(148, 163, 184, 0.22);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.12), transparent 35%),
+        radial-gradient(circle at 85% 90%, rgba(37, 99, 235, 0.1), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      min-height: 100vh;
+      padding: 28px 14px 60px;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .top {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(17, 24, 39, 0.88);
+      padding: 22px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff, #9bd8ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub { color: var(--muted); }
+
+    .alert {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(34, 197, 94, 0.45);
+      color: #d1fae5;
+      background: rgba(34, 197, 94, 0.12);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .zoom-disclaimer {
+      margin-top: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(37, 99, 235, 0.12));
+      padding: 14px 15px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.1), 0 0 26px rgba(56, 189, 248, 0.22);
+    }
+
+    .zoom-disclaimer::before {
+      content: "";
+      position: absolute;
+      inset: -40% -20% auto -20%;
+      height: 120%;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.45), transparent 60%);
+      pointer-events: none;
+    }
+
+    .zoom-disclaimer h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #dbeafe;
+    }
+
+    .zoom-disclaimer p {
+      position: relative;
+      z-index: 1;
+      color: #bfdbfe;
+      font-size: 0.9rem;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(17, 24, 39, 0.92);
+      padding: 18px;
+    }
+
+    .progress-wrap {
+      margin-bottom: 14px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 6px;
+    }
+
+    .progress {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.2);
+      overflow: hidden;
+    }
+
+    .progress > div {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width .2s ease;
+    }
+
+    .step { display: none; }
+    .step.active { display: block; }
+
+    .step h2 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent);
+      margin: 4px 0 12px;
+    }
+
+    .step-note {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-size: .92rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-size: .84rem;
+      color: #bfdbfe;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(2, 6, 23, 0.7);
+      color: var(--text);
+      padding: 10px 11px;
+      font-size: .92rem;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.16);
+    }
+
+    textarea { min-height: 90px; resize: vertical; }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: rgba(2, 6, 23, 0.55);
+    }
+
+    .check-item input {
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: .92rem;
+    }
+
+    .btn-next, .btn-submit {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #06131f;
+    }
+
+    .btn-back {
+      background: rgba(2, 6, 23, 0.7);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #052e16;
+    }
+
+    .tiny {
+      margin-top: 16px;
+      color: #7f8ea3;
+      font-size: .78rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .grid, .check-grid { grid-template-columns: 1fr; }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .actions .btn {
+        width: 100%;
+      }
+
+      .top,
+      .card {
+        padding: 14px;
+      }
+
+      .progress-meta {
+        font-size: 0.82rem;
+      }
+
+      input,
+      select,
+      textarea {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 16px 10px 34px;
+      }
+
+      h1 {
+        font-size: 1.35rem;
+      }
+
+      .sub {
+        font-size: 0.9rem;
+      }
+
+      .alert {
+        font-size: 0.78rem;
+        padding: 5px 10px;
+      }
+
+      .zoom-disclaimer {
+        padding: 10px;
+      }
+
+      .step h2 {
+        font-size: 0.9rem;
+      }
+
+      .step-note,
+      .tiny {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png"><meta property="og:image" content="https://scvbots.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://scvbots.com/og-image.png"></head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1>SCVbots Paid Client Onboarding</h1>
+      <p class="sub">Complete this once so we can build and launch your AI system without delays.</p>
+      <div class="alert">✅ For paid clients • $794 covers buildout + first month</div>
+      <div class="zoom-disclaimer">
+        <h3>Optional Premium Onboarding (Zoom + Recording)</h3>
+        <p>If you prefer, we can do this onboarding live over Zoom and record it. This helps us capture tone, edge-cases, and workflow details so your Voice AI is more accurate from day one. Recording is used internally for build quality and optimization only.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="progress-wrap">
+        <div class="progress-meta">
+          <span id="stepLabel">Step 1 of 10</span>
+          <span id="stepTitle">Primary Contact</span>
+        </div>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+
+      <form id="onboardingForm" action="https://formsubmit.co/Connor@HonorElevate.com" method="POST">
+        <input type="hidden" name="_subject" value="New SCVbots Onboarding Submission (Paid Client)">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://scvbots.com/thank-you">
+
+        <section class="step active" data-title="Primary Contact">
+          <h2>Section 1 • Primary Account Holder</h2>
+          <p class="step-note">Who is the main decision-maker and implementation contact?</p>
+          <div class="grid">
+            <div><label>First Name *</label><input required name="First Name"></div>
+            <div><label>Last Name *</label><input required name="Last Name"></div>
+            <div><label>Business Role / Title *</label><input required name="Business Role"></div>
+            <div><label>Direct Phone Number *</label><input required name="Direct Phone"></div>
+            <div><label>Business Email *</label><input type="email" required name="Business Email"></div>
+            <div>
+              <label>Preferred Contact Method *</label>
+              <select required name="Preferred Contact Method">
+                <option value="">Select</option>
+                <option>Call</option><option>Text</option><option>Email</option>
+              </select>
+            </div>
+            <div class="full"><label>Preferred Contact Time</label><input name="Preferred Contact Time" placeholder="Example: Weekdays 9am-12pm PT"></div>
+          </div>
+        </section>
+
+        <section class="step" data-title="Business Info">
+          <h2>Section 2 • Business Information</h2>
+          <div class="grid">
+            <div><label>Legal Business Name *</label><input required name="Legal Business Name"></div>
+            <div><label>DBA (if any)</label><input name="DBA"></div>
+            <div><label>Business Phone Number *</label><input required name="Business Main Phone"></div>
+            <div><label>Business Email (General Inbox)</label><input type="email" name="General Inbox Email"></div>
+            <div class="full"><label>Business Website URL *</label><input required name="Website URL"></div>
+            <div class="full"><label>Google Business Profile URL</label><input name="Google Business Profile URL"></div>
+            <div class="full"><label>Business Address</label><input name="Business Address"></div>
+            <div><label>City</label><input name="City"></div>
+            <div><label>State</label><input name="State"></div>
+            <div><label>Zip Code</label><input name="Zip"></div>
+            <div><label>Country</label><input name="Country" value="USA"></div>
+            <div><label>Time Zone *</label><input required name="Time Zone" placeholder="Example: America/Los_Angeles"></div>
+            <div><label>Industry *</label><input required name="Industry"></div>
+            <div>
+              <label>B2B or B2C? *</label>
+              <select required name="Business Model"><option value="">Select</option><option>B2B</option><option>B2C</option><option>Both</option></select>
+            </div>
+            <div><label>Years in Business</label><input name="Years in Business"></div>
+            <div><label>Number of Employees</label><input name="Number of Employees"></div>
+            <div class="full"><label>Service Areas (Cities/States Served) *</label><textarea required name="Service Areas"></textarea></div>
+          </div>
+        </section>
+
+        <section class="step" data-title="Bot Identity">
+          <h2>Section 3 • Voice AI Bot Configuration</h2>
+          <div class="grid">
+            <div><label>AI Name</label><input name="AI Name"></div>
+            <div>
+              <label>AI Disclosure Style *</label>
+              <select required name="AI Disclosure Style"><option value="">Select</option><option>Identify as AI assistant</option><option>Identify as assistant only</option></select>
+            </div>
+            <div class="full"><label>Company Name AI should use *</label><input required name="Company Name Spoken"></div>
+            <div>
+              <label>Personality *</label>
+              <select required name="Voice Personality"><option value="">Select</option><option>Professional</option><option>Friendly</option><option>Confident</option><option>Empathetic</option><option>Minimalist</option><option>Witty</option></select>
+            </div>
+            <div><label>Optional Celebrity Style</label><input name="Celebrity Style"></div>
+            <div><label>Voice Gender Preference</label><select name="Voice Gender"><option>Male</option><option>Female</option><option>Neutral</option></select></div>
+            <div><label>Speaking Speed</label><select name="Speaking Speed"><option>Slow</option><option selected>Normal</option><option>Fast</option></select></div>
+            <div><label>Energy Level</label><select name="Energy Level"><option>Calm</option><option selected>Neutral</option><option>High Energy</option></select></div>
+          </div>
+        </section>
+
+        <section class="step" data-title="Use Cases">
+          <h2>Section 4 • Primary Function of Voice Agent</h2>
+          <p class="step-note">Check all that apply.</p>
+          <div class="check-grid">
+            <label class="check-item"><input type="checkbox" name="Functions" value="Appointment Booking">Appointment Booking</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Answer FAQs">Answer FAQs</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Lead Qualification">Lead Qualification</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Quote Generation">Quote Generation</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Order Taking">Order Taking</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Support / Troubleshooting">Support / Troubleshooting</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Call Routing">Call Routing</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Upselling / Selling Services">Upselling / Selling Services</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Selling Products">Selling Products</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Membership Management">Membership Management</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Payment Collection">Payment Collection</label>
+            <label class="check-item"><input type="checkbox" name="Functions" value="Emergency Call Handling">Emergency Call Handling</label>
+          </div>
+          <div class="grid" style="margin-top:10px;"><div class="full"><label>Other Use Cases</label><textarea name="Other Functions"></textarea></div></div>
+        </section>
+
+        <section class="step" data-title="Booking + Services">
+          <h2>Section 5-7 • Booking, Services, and Products</h2>
+          <div class="grid">
+            <div><label>Calendar Platform</label><select name="Calendar Platform"><option>Google</option><option>Outlook</option><option>HighLevel</option><option>Other</option></select></div>
+            <div><label>Appointment Durations</label><input name="Appointment Durations" placeholder="15 min, 30 min, 60 min"></div>
+            <div><label>Working Hours</label><input name="Working Hours"></div>
+            <div><label>Days Available</label><input name="Days Available" placeholder="Mon-Fri"></div>
+            <div><label>Send SMS confirmation?</label><select name="SMS Confirmation"><option>Yes</option><option>No</option></select></div>
+            <div><label>Send email confirmation?</label><select name="Email Confirmation"><option>Yes</option><option>No</option></select></div>
+            <div class="full"><label>Reschedule + Cancellation Policy</label><textarea name="Reschedule and Cancellation Policy"></textarea></div>
+            <div class="full"><label>Services & Offers (name, price, target customer, pain points, expected results, upsells)</label><textarea name="Services and Offers"></textarea></div>
+            <div class="full"><label>Products (name, price, variations, shipping, refund/warranty, bundles)</label><textarea name="Products"></textarea></div>
+          </div>
+        </section>
+
+        <section class="step" data-title="Knowledge + Lead Capture">
+          <h2>Section 8-11 • Knowledge Base, Lead Capture, Sales, Escalation</h2>
+          <div class="grid">
+            <div class="full"><label>Top 20 FAQs + Common Objections + Competitor comparisons</label><textarea name="FAQs and Objections"></textarea></div>
+            <div class="full"><label>Why customers choose you / guarantees / turnaround times</label><textarea name="Differentiators and Guarantees"></textarea></div>
+            <div class="full"><label>What must AI always collect? (name, phone, email, budget, timeline, etc.)</label><textarea name="Required Lead Fields"></textarea></div>
+            <div><label>Phone SMS verification?</label><select name="SMS Verification"><option>Yes</option><option>No</option></select></div>
+            <div><label>Email confirmed verbally?</label><select name="Email Verification"><option>Yes</option><option>No</option></select></div>
+            <div><label>Conservative selling approach?</label><select name="Conservative Selling"><option>Yes</option><option>No</option></select></div>
+            <div><label>Push booking on every call?</label><select name="Push Booking Every Call"><option>Yes</option><option>No</option></select></div>
+            <div><label>Send follow-up SMS if hesitant?</label><select name="Hesitant Follow Up SMS"><option>Yes</option><option>No</option></select></div>
+            <div class="full"><label>Escalation rules (when human takeover is required)</label><textarea name="Escalation Rules"></textarea></div>
+            <div><label>Escalation Phone</label><input name="Escalation Phone"></div>
+            <div><label>Escalation Email</label><input type="email" name="Escalation Email"></div>
+          </div>
+        </section>
+
+        <section class="step" data-title="Compliance + Systems">
+          <h2>Section 12-18 • Compliance, Marketing, CRM, Brand, Technical Access</h2>
+          <div class="grid">
+            <div><label>Enable silence detection?</label><select name="Silence Detection"><option>Yes</option><option>No</option></select></div>
+            <div><label>Dropped call SMS follow-up?</label><select name="Dropped Call SMS"><option>Yes</option><option>No</option></select></div>
+            <div class="full"><label>Dropped call SMS template</label><textarea name="Dropped Call SMS Template"></textarea></div>
+            <div class="full"><label>Compliance language: call recording / TCPA / HIPAA / finance disclaimers</label><textarea name="Compliance Notes"></textarea></div>
+            <div><label>Terms URL</label><input name="Terms URL"></div>
+            <div><label>Privacy URL</label><input name="Privacy URL"></div>
+            <div class="full"><label>Marketing channels + promotions + referral/coupon details</label><textarea name="Marketing and Attribution"></textarea></div>
+            <div><label>Subaccount Name</label><input name="Subaccount Name"></div>
+            <div><label>Pipeline Stages</label><input name="Pipeline Stages"></div>
+            <div><label>Tags to apply</label><input name="Lead Tags"></div>
+            <div><label>Trigger workflows required</label><input name="Workflows Required"></div>
+            <div><label>SMS Sending Number</label><input name="SMS Sending Number"></div>
+            <div><label>Email Sending Domain</label><input name="Email Sending Domain"></div>
+            <div class="full"><label>Admin users (name + email + role)</label><textarea name="Admin Users"></textarea></div>
+            <div class="full"><label>Brand tone, mission, tagline, words to avoid/always use</label><textarea name="Brand Messaging Rules"></textarea></div>
+            <div class="full"><label>Technical access available now (GHL, domain, DNS, calendar, Stripe/Twilio status)</label><textarea name="Technical Access"></textarea></div>
+          </div>
+        </section>
+
+        <section class="step" data-title="Metrics + Final Confirmation">
+          <h2>Section 19-20 • Metrics, Payment Confirmation, Signature</h2>
+          <div class="grid">
+            <div><label>Primary KPI</label><select name="Primary KPI"><option>Bookings</option><option>Revenue</option><option>Lead Volume</option><option>Close Rate</option></select></div>
+            <div><label>Average Customer Value</label><input name="Average Customer Value"></div>
+            <div><label>Close Rate %</label><input name="Close Rate"></div>
+            <div><label>Sales Cycle Length</label><input name="Sales Cycle Length"></div>
+            <div class="full"><label>Ideal Customer Profile + Red Flag Customer Types</label><textarea name="ICP and Red Flags"></textarea></div>
+            <div class="full"><label>What does success look like in 90 days? *</label><textarea required name="90 Day Success"></textarea></div>
+            <div class="full"><label>Biggest frustration with current system?</label><textarea name="Biggest Frustration"></textarea></div>
+            <div class="full"><label>Anything else we should know?</label><textarea name="Additional Notes"></textarea></div>
+
+            <div><label>Payment Receipt Email *</label><input required type="email" name="Payment Receipt Email"></div>
+            <div><label>Payment Transaction ID / Confirmation # *</label><input required name="Payment Confirmation ID"></div>
+            <div><label>Would you like live Zoom onboarding?</label><select name="Zoom Onboarding Requested"><option>Yes</option><option>No</option></select></div>
+            <div><label>Do you consent to Zoom recording for implementation quality?</label><select name="Zoom Recording Consent"><option>Yes</option><option>No</option></select></div>
+            <div class="full"><label>Best times for Zoom onboarding (if yes)</label><input name="Preferred Zoom Times" placeholder="Example: Tue/Thu 10am-1pm PT"></div>
+            <div class="full check-item"><input required type="checkbox" name="Paid Confirmation" value="Confirmed">I confirm payment has been completed ($794 buildout + first month).</div>
+            <div class="full"><label>Digital Signature (Full Name) *</label><input required name="Digital Signature"></div>
+            <div><label>Date *</label><input required type="date" name="Signature Date"></div>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn btn-back" data-back>Back</button>
+            <button type="submit" class="btn btn-submit">Submit Onboarding</button>
+          </div>
+        </section>
+
+        <div class="actions" id="navActions">
+          <button type="button" class="btn btn-back" data-back style="visibility:hidden;">Back</button>
+          <button type="button" class="btn btn-next" data-next>Next Step</button>
+        </div>
+      </form>
+    </div>
+
+    <p class="tiny">Submission is sent to Connor@HonorElevate.com. If email routing is changed later, update the form action on this page.</p>
+  </div>
+
+  <script>
+    const steps = [...document.querySelectorAll('.step')];
+    const nextBtn = document.querySelector('[data-next]');
+    const backBtns = document.querySelectorAll('[data-back]');
+    const navActions = document.getElementById('navActions');
+    const progressBar = document.getElementById('progressBar');
+    const stepLabel = document.getElementById('stepLabel');
+    const stepTitle = document.getElementById('stepTitle');
+
+    let currentStep = 0;
+
+    function showStep(index) {
+      steps.forEach((step, i) => step.classList.toggle('active', i === index));
+      const pct = ((index + 1) / steps.length) * 100;
+      progressBar.style.width = pct + '%';
+      stepLabel.textContent = `Step ${index + 1} of ${steps.length}`;
+      stepTitle.textContent = steps[index].dataset.title || '';
+
+      const mainBack = navActions.querySelector('[data-back]');
+      mainBack.style.visibility = index === 0 ? 'hidden' : 'visible';
+      navActions.style.display = index === steps.length - 1 ? 'none' : 'flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateCurrentStep() {
+      const active = steps[currentStep];
+      const required = [...active.querySelectorAll('[required]')];
+      for (const field of required) {
+        if (!field.checkValidity()) {
+          field.reportValidity();
+          return false;
+        }
+      }
+      return true;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (!validateCurrentStep()) return;
+      if (currentStep < steps.length - 1) {
+        currentStep += 1;
+        showStep(currentStep);
+      }
+    });
+
+    backBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep > 0) {
+          currentStep -= 1;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    showStep(currentStep);
+  </script>
+</body>
+</html>
